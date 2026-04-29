@@ -1,0 +1,306 @@
+.home-overview {
+  background: #fffaf0;
+  padding: 82px 20px 36px;
+}
+
+.home-overview-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.75fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.overview-copy h2,
+.ventures-header h2 {
+  color: #1f2937;
+  font-size: 2.35rem;
+  line-height: 1.16;
+  margin: 16px 0 12px;
+}
+
+.overview-copy p,
+.ventures-header p {
+  color: #5f6b7a;
+  font-size: 1.04rem;
+  line-height: 1.8;
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: white;
+  border: 1px solid #f0dfb8;
+  border-radius: 8px;
+  box-shadow: 0 16px 38px rgba(120, 91, 35, 0.12);
+  overflow: hidden;
+}
+
+.overview-stats div {
+  padding: 24px 16px;
+  text-align: center;
+  border-right: 1px solid #f0dfb8;
+}
+
+.overview-stats div:last-child {
+  border-right: 0;
+}
+
+.overview-stats strong {
+  display: block;
+  color: #9a6414;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.overview-stats span {
+  color: #5f6b7a;
+  font-size: 0.88rem;
+}
+
+.benefits {
+  background: #fffaf0;
+  padding: 20px 20px 78px;
+}
+
+.benefits-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.benefit-item {
+  background: white;
+  border: 1px solid #f0dfb8;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(120, 91, 35, 0.08);
+}
+
+.benefit-item h3 {
+  color: #1f2937;
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+}
+
+.benefit-item p {
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.ventures {
+  padding: 84px 20px 92px;
+  background: #ffffff;
+}
+
+.ventures-container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.ventures-header {
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+
+.ventures-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.venture-card {
+  background: white;
+  border: 1px solid #e7eaf0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.venture-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+}
+
+.venture-image {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+  background: #eef2f7;
+}
+
+.venture-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.venture-card:hover .venture-image img {
+  transform: scale(1.04);
+}
+
+.venture-status {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 246, 216, 0.94);
+  color: #7a4a04;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.venture-info {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.venture-location {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.venture-name {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: #1f2937;
+  margin-bottom: 10px;
+  font-weight: 750;
+}
+
+.venture-price {
+  color: #9a6414;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.venture-description {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.venture-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.venture-highlights span {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.venture-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.inquiry-btn,
+.details-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.inquiry-btn {
+  background: #1f2937;
+  color: white;
+  padding: 0 18px;
+}
+
+.inquiry-btn:hover {
+  background: #9a6414;
+}
+
+.details-link {
+  color: #1f2937;
+  padding: 0 4px;
+}
+
+.details-link:hover {
+  color: #9a6414;
+}
+
+@media (max-width: 980px) {
+  .home-overview-container,
+  .ventures-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-overview-container {
+    gap: 30px;
+  }
+
+  .benefits-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-overview,
+  .ventures {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .home-overview {
+    padding-top: 56px;
+  }
+
+  .overview-copy h2,
+  .ventures-header h2 {
+    font-size: 1.9rem;
+  }
+
+  .overview-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-stats div {
+    border-right: 0;
+    border-bottom: 1px solid #f0dfb8;
+  }
+
+  .overview-stats div:last-child {
+    border-bottom: 0;
+  }
+
+  .venture-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .details-link {
+    justify-content: flex-start;
+  }
+}

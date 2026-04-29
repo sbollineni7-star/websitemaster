@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/supabaseclient.ts","./src/vite-env.d.ts","./src/components/carousel.tsx","./src/components/footer.tsx","./src/components/navbar.tsx","./src/components/venturedetails.tsx","./src/pages/about.tsx","./src/pages/home.tsx","./src/pages/login.tsx","./src/pages/register.tsx"],"version":"5.9.3"}

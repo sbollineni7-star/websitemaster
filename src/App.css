@@ -1,0 +1,22 @@
+/* App global styles */
+
+#root {
+  min-height: 100vh;
+}
+
+/* Main app container */
+html, body, #root {
+  height: 100%;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Smooth transitions throughout the app */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
