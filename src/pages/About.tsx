@@ -1,6 +1,8 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import csr1Image from '../assets/csr1.png'
+import WhatsAppLogo from '../components/WhatsAppLogo'
+import csr1Image from '../assets/csr11.png'
+import { contactName, whatsappHref } from '../contact'
 import '../styles/About.css'
 
 export default function AboutSB() {
@@ -47,10 +49,19 @@ export default function AboutSB() {
             <h2>Contact Us</h2>
             <div className="contact-info">
               <p>
-                <strong>Name:</strong> Srinivas Bollineni
+                <strong>Name:</strong> {contactName}
               </p>
               <p>
-                <strong>Phone:</strong> +91 7995088752
+                <strong>WhatsApp:</strong>{' '}
+                <a
+                  href={whatsappHref}
+                  className="about-whatsapp-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open WhatsApp chat"
+                >
+                  <WhatsAppLogo className="about-whatsapp-logo" /> +91 7995088752
+                </a>
               </p>
               <p>
                 <strong>Email:</strong> sribollineniinfradeveloper@gmail.com

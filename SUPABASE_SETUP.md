@@ -40,7 +40,89 @@ In Supabase dashboard:
 
 New users who register on the website will appear there.
 
-## 5. Roles and permissions
+## 5. Visitor counter database setup
+
+The footer visitor counter calls a Supabase function named `record_site_visit`. In Supabase:
+
+1. Open SQL Editor.
+2. Create a new query.
+3. Run this SQL:
+
+```sql
+create table if not exists public.site_visitor_stats (
+  id text primary key default 'main',
+  total_visitors bigint not null default 0,
+  total_visits bigint not null default 0,
+  updated_at timestamptz not null default now()
+);
+
+insert into public.site_visitor_stats (id, total_visitors, total_visits)
+values ('main', 0, 0)
+on conflict (id) do nothing;
+
+create table if not exists public.site_visitors (
+  visitor_key text primary key,
+  first_seen_at timestamptz not null default now(),
+  last_seen_at timestamptz not null default now(),
+  visit_count bigint not null default 1
+);
+
+alter table public.site_visitor_stats enable row level security;
+alter table public.site_visitors enable row level security;
+
+create or replace function public.record_site_visit(p_visitor_key text)
+returns table(total_visitors bigint, total_visits bigint)
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  inserted_count integer;
+begin
+  if p_visitor_key is null or length(trim(p_visitor_key)) < 8 then
+    raise exception 'Invalid visitor key';
+  end if;
+
+  insert into public.site_visitors (visitor_key)
+  values (p_visitor_key)
+  on conflict (visitor_key) do nothing;
+
+  get diagnostics inserted_count = row_count;
+
+  if inserted_count = 1 then
+    update public.site_visitor_stats
+    set
+      total_visitors = total_visitors + 1,
+      total_visits = total_visits + 1,
+      updated_at = now()
+    where id = 'main';
+  else
+    update public.site_visitors
+    set
+      last_seen_at = now(),
+      visit_count = visit_count + 1
+    where visitor_key = p_visitor_key;
+
+    update public.site_visitor_stats
+    set
+      total_visits = total_visits + 1,
+      updated_at = now()
+    where id = 'main';
+  end if;
+
+  return query
+  select stats.total_visitors, stats.total_visits
+  from public.site_visitor_stats as stats
+  where stats.id = 'main';
+end;
+$$;
+
+grant execute on function public.record_site_visit(text) to anon, authenticated;
+```
+
+This stores each browser as one real visitor. The website displays each visitor as 10 on the public counter, so the visible visitor count increases by 10 for every new browser visitor while repeat page loads are still tracked as total visits. The React counter also stores the last displayed count locally and animates from the previous stored value to the newest value instead of jumping from zero.
+
+## 6. Roles and permissions
 
 Supabase supports roles and permissions through:
 

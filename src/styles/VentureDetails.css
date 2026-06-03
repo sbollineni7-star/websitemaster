@@ -217,8 +217,8 @@
 }
 
 .venture-actions {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   align-items: center;
 }
@@ -294,10 +294,6 @@
 
   .overview-stats div:last-child {
     border-bottom: 0;
-  }
-
-  .venture-actions {
-    grid-template-columns: 1fr;
   }
 
   .details-link {

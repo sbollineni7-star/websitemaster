@@ -94,6 +94,43 @@
   color: var(--primary-color);
 }
 
+.contact-info a {
+  color: #1f2937;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.contact-info a:hover {
+  color: #9a6414;
+}
+
+.about-chat-row {
+  display: flex;
+  align-items: center;
+}
+
+.about-whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1fa855;
+  color: white;
+  box-shadow: 0 10px 22px rgba(18, 140, 74, 0.18);
+}
+
+.about-whatsapp-link:hover {
+  background: #168343;
+  color: white;
+}
+
+.about-whatsapp-logo {
+  width: 27px;
+  height: 27px;
+}
+
 @media (max-width: 768px) {
   .about-hero {
     height: 260px;

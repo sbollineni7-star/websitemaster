@@ -108,6 +108,23 @@
   text-transform: uppercase;
 }
 
+.contact-item .contact-logo-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1fa855;
+  color: white;
+  align-self: start;
+}
+
+.contact-whatsapp-logo {
+  width: 21px;
+  height: 21px;
+}
+
 .contact-item strong,
 .contact-item a {
   color: #e5edf7;
@@ -117,34 +134,72 @@
 }
 
 .social-links {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 12px;
 }
 
 .social-link {
-  padding: 0;
   border: 1px solid rgba(246, 196, 83, 0.55);
-  border-radius: 8px;
+  border-radius: 14px;
   transition: var(--transition);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  background: rgba(255, 255, 255, 0.03);
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5edf7;
+  text-decoration: none;
 }
 
 .social-icon {
-  font-size: 1.2rem;
-  font-weight: bold;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #111827;
+}
+
+.social-handle {
+  display: inline-block;
+  color: #e5edf7;
+  font-weight: 700;
 }
 
 .social-link:hover {
   background: #f6c453;
   color: #1f2937;
   transform: translateY(-2px);
+}
+
+.social-link:hover .social-icon {
+  background: #1f2937;
+  color: #f6c453;
+}
+
+.social-link.facebook .social-icon {
+  background: #1877F2;
+  color: #fff;
+}
+
+.social-link.x .social-icon {
+  background: #000;
+  color: #fff;
+}
+
+.social-link.instagram .social-icon {
+  background: radial-gradient(circle at 30% 30%, #fccc63 0%, #ea5f96 35%, #833ab4 65%, #3f5bd5 100%);
+  color: #fff;
+}
+
+.social-link.linkedin .social-icon {
+  background: #0A66C2;
+  color: #fff;
 }
 
 .footer-bottom {
@@ -162,6 +217,32 @@
 .footer-links {
   display: flex;
   gap: 20px;
+}
+
+.visitor-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid rgba(246, 196, 83, 0.32);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e5edf7;
+  white-space: nowrap;
+}
+
+.visitor-counter span {
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.visitor-counter strong {
+  color: #f6c453;
+  font-size: 1rem;
+  font-weight: 900;
 }
 
 .footer-links a {

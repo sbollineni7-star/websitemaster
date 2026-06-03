@@ -1,23 +1,28 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-let supabase: any = null
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('⚠️ Missing Supabase environment variables. Authentication features disabled. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to enable.')
-  // Create a dummy client for development that won't crash
-  supabase = {
-    auth: {
-      signUp: async () => ({ data: null, error: { message: 'Supabase not configured' } }),
-      signInWithPassword: async () => ({ data: null, error: { message: 'Supabase not configured' } }),
-      signOut: async () => ({ error: null }),
-      onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } })
-    }
+type SupabaseAuthFallback = {
+  auth: {
+    signUp: () => Promise<{ data: null; error: { message: string } }>
+    signInWithPassword: () => Promise<{ data: null; error: { message: string } }>
+    signOut: () => Promise<{ error: null }>
+    onAuthStateChange: () => { data: { subscription: { unsubscribe: () => void } } }
   }
-} else {
-  supabase = createClient(supabaseUrl, supabaseAnonKey)
+  rpc: (...args: readonly unknown[]) => Promise<{ data: null; error: { message: string } }>
 }
+
+const supabase: SupabaseClient | SupabaseAuthFallback = !supabaseUrl || !supabaseAnonKey
+  ? {
+      auth: {
+        signUp: async () => ({ data: null, error: { message: 'Supabase not configured' } }),
+        signInWithPassword: async () => ({ data: null, error: { message: 'Supabase not configured' } }),
+        signOut: async () => ({ error: null }),
+        onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
+      },
+      rpc: async () => ({ data: null, error: { message: 'Supabase not configured' } }),
+    }
+  : createClient(supabaseUrl, supabaseAnonKey)
 
 export { supabase }

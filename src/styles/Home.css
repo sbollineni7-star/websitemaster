@@ -4,4 +4,53 @@
   min-height: 100vh;
 }
 
-/* Home-specific styles would go here */
+.video-section {
+  width: 100%;
+  padding: 4rem 2rem;
+  background: #f9f6ed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.video-content {
+  max-width: 540px;
+}
+
+.video-content h2 {
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.video-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+.video-wrapper {
+  flex: 1 1 420px;
+  max-width: 760px;
+}
+
+.featured-video {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .video-section {
+    padding: 3rem 1.25rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .video-section {
+    padding: 2rem 1rem;
+  }
+}

@@ -1,3 +1,4 @@
+import { phoneHref } from '../contact'
 import '../styles/VentureDetails.css'
 
 const ventures = [
@@ -124,7 +125,7 @@ export default function VentureDetails() {
                   </div>
 
                   <div className="venture-actions">
-                    <a href="tel:+917995088752" className="inquiry-btn">
+                    <a href={phoneHref} className="inquiry-btn">
                       Call Now
                     </a>
                     <a href="/about" className="details-link">
