@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import { whatsappHref } from './contact'
 import WhatsAppLogo from './components/WhatsAppLogo'
+import Chatbot from './components/Chatbot'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       >
         <WhatsAppLogo className="whatsapp-float-logo" />
       </a>
+      <Chatbot />
     </>
   )
 }
