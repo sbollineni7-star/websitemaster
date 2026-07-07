@@ -9,16 +9,13 @@
   padding: 4rem 2rem;
   background: #f9f6ed;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  gap: 2rem;
 }
 
-.video-wrapper.centered {
-  width: 100%;
-  max-width: 960px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.video-content {
+  max-width: 540px;
 }
 
 .video-content h2 {

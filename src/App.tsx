@@ -4,7 +4,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
 import About from './pages/About'
-import JobHuntOneAgent from './pages/JobHuntOneAgent'
 import { whatsappHref } from './contact'
 import WhatsAppLogo from './components/WhatsAppLogo'
 import Chatbot from './components/Chatbot'
@@ -18,8 +17,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
-          <Route path="/jobhunt" element={<JobHuntOneAgent />} />
-          <Route path="/jobhunt-one-agent" element={<JobHuntOneAgent />} />
         </Routes>
       </Router>
       <a
