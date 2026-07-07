@@ -224,6 +224,9 @@ export default function Navbar() {
           <a href="/about" className="nav-link">
             About Us
           </a>
+          <a href="/jobhunt" className="nav-link">
+            JobHunt
+          </a>
           <a href={phoneHref} className="nav-link nav-call">
             Call Now
           </a>

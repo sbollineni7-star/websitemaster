@@ -23,11 +23,7 @@ export default function Home() {
       <Navbar />
       <Carousel />
       <section className="video-section">
-        <div className="video-content">
-          <h2>Development Progress</h2>
-          <p>Watch our featured presentation to learn more about the project and vision.</p>
-        </div>
-        <div className="video-wrapper">
+        <div className="video-wrapper centered">
           <video src={video1} controls preload="metadata" className="featured-video" />
         </div>
       </section>
